@@ -1,22 +1,6 @@
-export default function Etudiants() {
-  const etudiants = [
-    {
-      id: 1,
-      nom: "Amine",
-      programme: "Informatique",
-    },
-    {
-      id: 2,
-      nom: "Sophie",
-      programme: "Administration",
-    },
-    {
-      id: 3,
-      nom: "Lucas",
-      programme: "Sciences",
-    },
-  ];
+import { etudiants } from "@/lib/donnees-fictives";
 
+export default function Etudiants() {
   return (
     <section className="studentsPage">
 
@@ -25,10 +9,14 @@ export default function Etudiants() {
       </h1>
 
       <p className="studentsDescription">
-        Voici quelques étudiants inscrits au Collège ABC.
+        Voici les étudiants inscrits au Collège ABC.
       </p>
 
       <div className="studentsCards">
+
+        {etudiants.length === 0 && (
+          <p>Aucun étudiant pour le moment.</p>
+        )}
 
         {etudiants.map((etudiant) => (
           <div
@@ -43,9 +31,18 @@ export default function Etudiants() {
             <h2>{etudiant.nom}</h2>
 
             <p>
-              Programme :
-              <strong> {etudiant.programme}</strong>
+              Formations :
+              <strong>
+                {" "}
+                {etudiant.formations.length > 0
+                  ? etudiant.formations.map((f) => f.nom).join(", ")
+                  : "Aucune"}
+              </strong>
             </p>
+
+            {etudiant.profil?.bio && (
+              <p>{etudiant.profil.bio}</p>
+            )}
 
           </div>
         ))}

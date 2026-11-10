@@ -1,25 +1,7 @@
-export default function Formations() {
-  const programmes = [
-    {
-      id: 1,
-      nom: "Techniques de l'informatique",
-      description:
-        "Apprentissage de la programmation, du Web, des bases de données et du développement logiciel.",
-    },
-    {
-      id: 2,
-      nom: "Administration",
-      description:
-        "Formation en gestion, finance, marketing et organisation des entreprises.",
-    },
-    {
-      id: 3,
-      nom: "Sciences",
-      description:
-        "Formation préparatoire aux études universitaires en sciences.",
-    },
-  ];
+import Link from "next/link";
+import { formations } from "@/lib/donnees-fictives";
 
+export default function Formations() {
   return (
     <section className="formationsPage">
 
@@ -33,23 +15,31 @@ export default function Formations() {
 
       <div className="formationsList">
 
-        {programmes.map((programme) => (
+        {formations.length === 0 && (
+          <p>Aucune formation pour le moment.</p>
+        )}
+
+        {formations.map((formation) => (
           <article
-            key={programme.id}
+            key={formation.id}
             className="formationCard"
           >
 
             <h2 className="formationTitle">
-              {programme.nom}
+              {formation.nom}
             </h2>
 
             <p className="formationDescription">
-              {programme.description}
+              {formation.description ?? "Aucune description."}
             </p>
 
-            <button className="formationButton">
-              En savoir plus
-            </button>
+            <Link
+              href={`/formations/${formation.id}`}
+              className="formationButton"
+              style={{ display: "inline-block" }}
+            >
+              Voir détails
+            </Link>
 
           </article>
         ))}

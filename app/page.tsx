@@ -11,7 +11,7 @@ export default function Home() {
 
           <p>
             Découvrez nos programmes, nos étudiants et notre environnement
-            d'apprentissage.
+            dapprentissage.
           </p>
 
           <Link href="/formations" className="homeButton">
