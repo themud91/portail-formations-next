@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
@@ -5,9 +6,17 @@ export default function Home() {
     <div>
 
       <section className="homeHero">
+        <Image
+          src="/accueil.jpg"
+          alt="Étudiants et enseignant dans une salle de classe"
+          width={1998}
+          height={1125}
+          priority
+          className="w-full h-64 md:h-96 object-cover"
+        />
         <div className="homeHeroContent">
 
-          <h1>Bienvenue au Collège ABC, version 2</h1>
+          <h1>Bienvenue au Collège La Pocatière</h1>
 
           <p>
             Découvrez nos programmes, nos étudiants et notre environnement

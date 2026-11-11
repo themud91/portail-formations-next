@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 
+const police = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
 export const metadata: Metadata = {
-  title: "Collège ABC",
+  title: "Collège La Pocatière",
   description: "Premier projet Next.js",
 };
 
@@ -14,12 +20,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body>
+      <body className={police.className}>
 
         <header className="header">
           <div className="headerContainer">
 
-            <h1 className="logo">Collège ABC</h1>
+            <h1 className="logo">Collège La Pocatière</h1>
 
             <nav className="navigation">
               <Link href="/">Accueil</Link>
@@ -37,7 +43,7 @@ export default function RootLayout({
         </main>
 
         <footer className="footer">
-          <p>© 2026 Collège ABC</p>
+          <p>© 2026 Collège La Pocatière</p>
         </footer>
 
       </body>

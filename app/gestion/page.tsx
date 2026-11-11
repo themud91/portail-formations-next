@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { prisma } from "@/lib/prisma";
 
 import {
@@ -64,6 +65,15 @@ export default async function GestionPage() {
     <main className="min-h-screen bg-slate-50 px-6 py-10">
 
       <div className="mx-auto max-w-6xl space-y-12">
+
+        <Image
+          src="/gestion.jpg"
+          alt="Tableau de planification avec notes adhésives"
+          width={2000}
+          height={1336}
+          priority
+          className="h-48 w-full rounded-xl object-cover md:h-72"
+        />
 
         <h1 className="text-3xl font-bold text-slate-900">
           Gestion

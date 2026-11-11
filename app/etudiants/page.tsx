@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { prisma } from "@/lib/prisma";
 
 // Lit la base de donnees a chaque visite, sans fixer les donnees lors du build
@@ -13,12 +14,21 @@ export default async function Etudiants() {
   return (
     <section className="studentsPage">
 
+      <Image
+        src="/etudiants.jpg"
+        alt="Étudiants diplômés lançant leurs toques"
+        width={2000}
+        height={1333}
+        priority
+        className="mb-8 h-48 w-full rounded-xl object-cover md:h-72"
+      />
+
       <h1 className="studentsTitle">
         Nos étudiants
       </h1>
 
       <p className="studentsDescription">
-        Voici les étudiants inscrits au Collège ABC.
+        Voici les étudiants inscrits au Collège La Pocatière.
       </p>
 
       <div className="studentsCards">

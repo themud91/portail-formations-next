@@ -31,7 +31,7 @@ export default function Contact() {
           <p>
             <strong>Courriel :</strong>
             <br />
-            info@collegeabc.ca
+            info@collegelapocatiere.ca
           </p>
 
         </div>

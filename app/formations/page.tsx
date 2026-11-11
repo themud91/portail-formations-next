@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 
@@ -12,6 +13,15 @@ export default async function Formations() {
 
   return (
     <section className="formationsPage">
+
+      <Image
+        src="/formations.jpg"
+        alt="Auditorium du collège pendant un cours"
+        width={2000}
+        height={1500}
+        priority
+        className="mb-8 h-48 w-full rounded-xl object-cover md:h-72"
+      />
 
       <h1 className="formationsTitle">
         Nos formations
