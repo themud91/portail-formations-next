@@ -11,6 +11,10 @@ import {
   createProfil,
 } from "./actions";
 
+// Lit la base de donnees a chaque visite, sans fixer les donnees lors du build
+// doc : https://nextjs.org/docs/app/guides/caching-without-cache-components#route-segment-config
+export const dynamic = "force-dynamic";
+
 // Classes Tailwind reutilisees
 const card =
   "rounded-xl border border-slate-200 bg-white p-5 shadow-sm";
@@ -64,11 +68,6 @@ export default async function GestionPage() {
         <h1 className="text-3xl font-bold text-slate-900">
           Gestion
         </h1>
-
-        <p className="rounded-lg border border-amber-300 bg-amber-50 px-4 py-3 text-amber-900">
-          Avertissement : cette page utilise une base SQLite locale. En
-          production sur Vercel, les modifications ne sont pas durables.
-        </p>
 
 
         {/* ==================================

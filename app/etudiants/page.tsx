@@ -1,6 +1,15 @@
-import { etudiants } from "@/lib/donnees-fictives";
+import { prisma } from "@/lib/prisma";
 
-export default function Etudiants() {
+// Lit la base de donnees a chaque visite, sans fixer les donnees lors du build
+// doc : https://nextjs.org/docs/app/guides/caching-without-cache-components#route-segment-config
+export const dynamic = "force-dynamic";
+
+export default async function Etudiants() {
+  const etudiants = await prisma.etudiant.findMany({
+    include: { profil: true, formations: true },
+    orderBy: { id: "asc" },
+  });
+
   return (
     <section className="studentsPage">
 

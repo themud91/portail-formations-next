@@ -1,6 +1,10 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { formations } from "@/lib/donnees-fictives";
+import { prisma } from "@/lib/prisma";
+
+// Lit la base de donnees a chaque visite, sans fixer les donnees lors du build
+// doc : https://nextjs.org/docs/app/guides/caching-without-cache-components#route-segment-config
+export const dynamic = "force-dynamic";
 
 export default async function FormationDetails({
   params,
@@ -14,7 +18,10 @@ export default async function FormationDetails({
     notFound();
   }
 
-  const formation = formations.find((f) => f.id === formationId);
+  const formation = await prisma.formation.findUnique({
+    where: { id: formationId },
+    include: { cours: true, etudiants: true },
+  });
 
   if (!formation) {
     notFound();

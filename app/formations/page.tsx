@@ -1,7 +1,15 @@
 import Link from "next/link";
-import { formations } from "@/lib/donnees-fictives";
+import { prisma } from "@/lib/prisma";
 
-export default function Formations() {
+// Lit la base de donnees a chaque visite, sans fixer les donnees lors du build
+// doc : https://nextjs.org/docs/app/guides/caching-without-cache-components#route-segment-config
+export const dynamic = "force-dynamic";
+
+export default async function Formations() {
+  const formations = await prisma.formation.findMany({
+    orderBy: { id: "asc" },
+  });
+
   return (
     <section className="formationsPage">
 
