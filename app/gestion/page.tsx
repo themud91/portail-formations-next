@@ -62,7 +62,7 @@ export default async function GestionPage() {
 
 
   return (
-    <main className="min-h-screen bg-slate-50 px-6 py-10">
+    <div className="min-h-screen bg-slate-50 px-6 py-10">
 
       <div className="mx-auto max-w-6xl space-y-12">
 
@@ -568,6 +568,6 @@ export default async function GestionPage() {
 
       </div>
 
-    </main>
+    </div>
   );
 }
