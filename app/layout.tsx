@@ -25,7 +25,7 @@ export default function RootLayout({
         <header className="header">
           <div className="headerContainer">
 
-            <h1 className="logo">Collège La Pocatière</h1>
+            <div className="logo">Collège La Pocatière</div>
 
             <nav className="navigation">
               <Link href="/">Accueil</Link>
